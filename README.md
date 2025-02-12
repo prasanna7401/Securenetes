@@ -2,22 +2,6 @@
 
 For automatic hardening of K8s cluster, but enforcing and implementing [CIS benchmark recommendations](https://www.cisecurity.org/benchmark/kubernetes).
 
-## Table of Contents
-
-<details>
-<summary> Click Me </summary>
-
-- [How to use?](#how-to-use-?)
-- [Solution Architecture](#solution-architecture)
-- [Remediated Controls](#remediated-controls)
-  - [Master node](#in-master-node)
-  - [Worker node](#in-worker-node)
-- [Sample Run Results](#sample-run-results)
-- [Limitations and known issues](#limitations-and-known-issues)
-
-
-</details>
-
 ## How to use?
 
 The python program ([main.py](./main.py)) supports use of the below three arguments. You can run the python code with any of the below arguments (must declare one).
@@ -141,6 +125,13 @@ Let's focus on one of the failed control checks (say, _4.2.7_). This control inv
 
   Now, if you run the control check again, or during the next scheduled run, you can check that the control has passed!
 
-  
 
+## Limitations and known issues
 
+- Exceptions and error conditions (to be added soon)
+- An alternate way to login to the nodes without supplying SSH-key (to be tested).
+
+## Other contributors
+
+- Danush Adhithya
+- Roshan Ravindran

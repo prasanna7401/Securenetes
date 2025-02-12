@@ -1,12 +1,12 @@
 # Securenetes
 
-For automatic hardening of K8s cluster, but enforcing and implementing [CIS benchmark recommendations](https://www.cisecurity.org/benchmark/kubernetes).
+For automatic hardening of K8s cluster, by enforcing and implementing [CIS benchmark recommendations](https://www.cisecurity.org/benchmark/kubernetes).
 
 ## How to use?
 
-The python program ([main.py](./main.py)) supports use of the below three arguments. You can run the python code with any of the below arguments (must declare one).
+The script ([main.py](./main.py)) supports the use of the below three arguments. You can run the Python code with any of the below arguments (must declare one).
   - `--include-auto`: To remediate all controls that can be done automatically
-  - `--include-all`: To remediate all automated controls and provide steps to remediate controls that required manual intervention.
+  - `--include-all`: To remediate all automated controls and provide steps to remediate controls that require manual intervention.
   - `--exempt`: To exclude certain controls from automatic remediation. Useful for production scenarios.
 
 You will need to input the `username` to connect to the K8s cluster, and also the SSH Key to connect to the cluster nodes.
@@ -17,9 +17,9 @@ If you would like to exempt remediation of certain controls, you need to mention
 
 ### Dependencies
 
-- This script requires you to have `kubectl` and `kops` tools installed in the machine which will run the script.
-- Make sure to have the private key of nodes in particular directory so the tool can access them while using paramiko client to SSH.
-- Configure the CLI to assume the role with permissions to access the nodes if they were hosted on cloud and assure that the state holder storages are accessible when buckets are used as `etcd` storage.
+- This script requires you to have `kubectl` and `kops` tools installed in the machine that will run the script.
+- Make sure to have the private key of nodes in the particular directory so the tool can access them while using paramiko client to SSH.
+- Configure the CLI to assume the role with permissions to access the nodes if they were hosted on the cloud and assure that the state holder storages are accessible when buckets are used as `etcd` storage.
 - Validate the cluster from CLI to make sure that the cluster is ready and accessible by running the below command,
   ```sh
   kops validate cluster
@@ -27,7 +27,7 @@ If you would like to exempt remediation of certain controls, you need to mention
 
 ## Solution Architecture
 
-As shown below, this tool depends on `kubebench` utility to perform the security audit of the k8s cluster, to perform the automatic remediation with the python script.
+As shown below, this tool depends on `kubebench` utility to perform the security audit of the k8s cluster, and to perform the automatic remediation with the python script.
 
 ![hla](./screenshots/high-level-architecture.png)
 
@@ -75,7 +75,7 @@ There are a bunch of security controls that could be automated (supported by thi
 | 1.3.3 | Ensure `--use-service-account-credentials` argument is true. | Set `--use-service-account-credentials=true` |
 | 1.3.4 | Ensure `--service-account-private-key-file` argument is set. | Set `--service-account-private-key-file=/srv/kubernetes/kube-controller-manager/service-account.key` |
 | 1.3.5 | Ensure `--root-ca-file` argument is set. | Set `--root-ca-file=/srv/kubernetes/ca.crt` |
-| 1.3.6 | Ensure `RotateKubeletServerCertificate argument is true. | Set `--feature-gates=RotateKubeletServerCertificate=true` |
+| 1.3.6 | Ensure `RotateKubeletServerCertificate` argument is true. | Set `--feature-gates=RotateKubeletServerCertificate=true` |
 | 1.3.7 | Ensure `--bind-address` argument is `127.0.0.1`. | Set `--bind-address=127.0.0.1` |
 | 1.4.1 | Ensure `--profiling` argument is false (scheduler). | Set `--profiling=false` in `/etc/kubernetes/manifests/kube-scheduler.manifest` |
 | 1.4.2 | Ensure `--bind-address` argument is `127.0.0.1` | Set `--bind-address=127.0.0.1`|
@@ -129,7 +129,7 @@ Let's focus on one of the failed control checks (say, _4.2.7_). This control inv
 ## Limitations and known issues
 
 - Exceptions and error conditions (to be added soon)
-- An alternate way to login to the nodes without supplying SSH-key (to be tested).
+- An alternate way to log in to the nodes without supplying SSH-key (to be tested).
 
 ## Other contributors
 

@@ -35,6 +35,9 @@ This script helps in remediating the security controls as shown in [CIS benchmar
 
 ## Remediated Controls
 
+<details>
+<summary> Click here to view the controls </summary>
+
 There are a bunch of security controls that could be automated (supported by this script) for both the master and the worker nodes.
 
 ### In Master Node
@@ -97,6 +100,8 @@ There are a bunch of security controls that could be automated (supported by thi
 | 4.2.6 | Ensure `--protect-kernel-defaults` is true. | Add `--protect-kernel-defaults=true` in `/lib/systemd/system/kubelet.service` |
 | 4.2.7 | Ensure `--make-iptables-util-chains` is true. | Add `--make-iptables-util-chains=true` in `/lib/systemd/system/kubelet.service` |
 | 4.2.11 | Ensure `--rotate-certificates` is not false. | Remove `--rotate-certificates=false` in `/lib/systemd/system/kubelet.service` |
+
+</details>
 
 ## Sample Run Results
 

@@ -27,6 +27,10 @@ The python program ([main.py](./main.py)) supports use of the below three argume
 
 You will need to input the `username` to connect to the K8s cluster, and also the SSH Key to connect to the cluster nodes.
 
+### Adding exemptions
+
+If you would like to exempt remediation of certain controls, you need to mention the control ID in the [exempt.txt](./exempt.txt) file.
+
 ### Dependencies
 
 - This script requires you to have `kubectl` and `kops` tools installed in the machine which will run the script.
